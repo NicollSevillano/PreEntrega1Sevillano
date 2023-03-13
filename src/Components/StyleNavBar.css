@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navBarCentro{
+    display: flex;
+    justify-content: center;
+}
+.style-nav{
+    margin: 2px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    gap: 4px;
+}
+.items{
+    gap: 30px;
+}
+.btnBuscar{
+    color: black;
+    background-color: #9d0301;
+    border-style: none;
+}
+.imgNav{
+    display: flex;
+    padding-left: 20px;
+    height: 100px;
+    width: 80px;
+}
+.btnBuscar:hover{
+    background-color: #6a0002;
+}
+.itemList{
+    color: white;
+}
+.ion-cart{
+    padding-right: 10px;
+    font-size: 25px;
+    justify-content: center;
+}
