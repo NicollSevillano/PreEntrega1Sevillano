@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter} from "react-router-dom"
 import NavBar from "./Components/NavBar";
-import ItemListContainer from './Components/ItemListContainer';
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <ItemListContainer greeting="No disponible por el momento"/>
+        <BrowserRouter >
+            <NavBar/>
+          </BrowserRouter>
     </div>
   );
 }

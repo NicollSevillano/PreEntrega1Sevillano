@@ -1,62 +1,70 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemList from "./ItemListContainer";
 import "./StyleNavBar.css";
 import luli from "./assets/img/luli.png";
 import CartWidget from "./CartWidget";
+import { Link, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import ItemListContainer from "./ItemListContainer";
+import ItemDetailContainer from "./Item/ItemDetailContainer";
 
-function NavBar(){
-    return(
-        <>
-            <Navbar bg="light" expand="lg">
-                <Container fluid className="style-nav">
-                    <Navbar.Brand href="#"><img className="imgNav" src={luli}></img></Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
-                    <Nav
-                        className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
-                        navbarScroll
-                    >
-                        <Nav.Link className="navBarCentro" href="#action1">Inicio</Nav.Link>
-                            <NavDropdown className="items" title="Productos" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">PRE-VENTA</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">DC</NavDropdown.Item>
-                                <NavDropdown.Item href="#action5">MARVEL</NavDropdown.Item>
-                                <NavDropdown.Item href="#action6">Mangas</NavDropdown.Item>
-                                <NavDropdown.Item href="#action7">Hot Toys</NavDropdown.Item>
-                                <NavDropdown.Item href="#action8">Harry Potter</NavDropdown.Item>
-                                <NavDropdown.Item href="#action9">Funkos</NavDropdown.Item>
-                                <NavDropdown.Item href="#action10">Posters/postales</NavDropdown.Item>
-                            </NavDropdown>
-                        <Nav.Link className="navBarCentro" href="#action2">¿Quienes somos?</Nav.Link>
-                        <Nav.Link className="navBarCentro" href="#action3">Contacto</Nav.Link>
-                        </Nav>
-                        <Nav.Link href="#action4">
-                            <div className="ion-cart"> 
-                                <CartWidget/>
+function NavBar() {
+    return (
+        <div className="container" id="navbar">
+            <div className="row">
+                <div className="col-6">
+                    <nav className="navbar navbar-expand-lg ">
+                        <div className="container-fluid">
+                            <Link className="navbar-brand" to={"/"}><img src={luli} alt="tecno" width={100} /></Link>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarNav">
+                                <ul className="navStyle navbar-nav">
+                                    <li className="navStyle li nav-item">
+                                        <NavLink className="nav-link" aria-current="page" to={"/category/dc"}>DC</NavLink>
+                                    </li>
+                                    <li className="navStyle li nav-item">
+                                        <NavLink className="nav-link" to={"/category/marvel"}>MARVEL</NavLink>
+                                    </li>
+                                    <li className="navStyle li nav-item">
+                                        <NavLink className="nav-link" to={"/category/mangas"}>Mangas</NavLink>
+                                    </li>
+                                    <li className="navStyle li nav-item">
+                                        <NavLink className="nav-link" to={"/category/hp"}>Harry Potter</NavLink>
+                                    </li>
+                                    <li className="navStyle li nav-item">
+                                        <NavLink className="nav-link" to={"/category/hottoys"}>Toys</NavLink>
+                                    </li>
+                                </ul>
                             </div>
-                        </Nav.Link>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Buscar"
-                                className="me-2"
-                                aria-label="Search"
-                                />
-                            <Button className="btnBuscar" variant="outline-success">Buscar</Button>
-                        </Form>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </>
-    );
+                        </div>
+                    </nav>
+                </div>
+                <div className="col-6 d-flex justify-content-end  align-items-center">
+                    <div className="ion-cart">
+                        <CartWidget />
+                    </div>
+                    <Form className="d-flex">
+                        <Form.Control
+                            type="search"
+                            placeholder="Buscar"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Buscar</Button>
+                    </Form>
+                </div>
+            </div>
+            <Routes>
+                <Route path={"/"} element={<ItemListContainer />} />
+                <Route path={"/category/:id"} element={<ItemListContainer />} />
+                <Route path={"/item/:id"} element={<ItemDetailContainer />} />
+            </Routes>
+        </div>
+    )
 }
 
 export default NavBar;

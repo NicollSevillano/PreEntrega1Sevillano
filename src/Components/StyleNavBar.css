@@ -3,39 +3,59 @@
     padding: 0;
     box-sizing: border-box;
 }
-.navBarCentro{
+
+.navBarCentro {
     display: flex;
     justify-content: center;
 }
-.style-nav{
+
+.style-nav {
     margin: 2px;
     background-color: white;
     color: black;
     font-weight: bold;
     gap: 4px;
 }
-.items{
+
+.items {
     gap: 30px;
 }
-.btnBuscar{
+
+.btnBuscar {
     color: black;
     background-color: #9d0301;
     border-style: none;
 }
-.imgNav{
+
+.imgNav {
     display: flex;
     padding-left: 20px;
     height: 100px;
     width: 80px;
 }
-.btnBuscar:hover{
+
+.btnBuscar:hover {
     background-color: #6a0002;
 }
-.itemList{
+
+.itemList {
     color: white;
 }
-.ion-cart{
+
+.ion-cart {
     padding-right: 10px;
     font-size: 25px;
     justify-content: center;
+}
+
+.navStyle {
+    font-family: 'Labrada', serif;
+    font-family: 'Lilita One', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+}
+.li{
+    color: black;
 }

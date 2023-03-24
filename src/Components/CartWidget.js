@@ -1,11 +1,12 @@
 import React from "react";
 import "./StyleNavBar.css"; 
+import {AiOutlineShoppingCart} from "react-icons/ai"
 
 export const CartWidget = () => {
     return(
         <div> 
-            <ion-icon className="ioncart ion-cart" name="ion-cart cart-outline"></ion-icon> 
-            <span className="notificacion">1</span>
+            <AiOutlineShoppingCart/>
+            1
         </div>
     );
 }
