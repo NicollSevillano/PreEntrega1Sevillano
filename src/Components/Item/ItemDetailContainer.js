@@ -1,24 +1,32 @@
 import React from "react";
 import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import productos from "../productos.json";
+import ItemDetail from "../Item/ItemDetail";
+import { doc, getDoc, collection } from "firebase/firestore"
+import db from "../Firebase/Firebase";
 
 const ItemDetailContainer = () => {
-    const [ item, setItem ] = useState({});
+    const [data, setData] = useState('');
     const {id} = useParams();
     useEffect(() => {
-        const promise = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(productos.find(item => item.id == id))
-            },2000);
-        })
-        promise.then((prod) => {
-            setItem(prod);
-        })
+        const list = collection(db, 'Items');
+        const queryDoc = doc(list, id);
+        
+        getDoc(queryDoc)
+        .then(
+            content =>{
+                const lista = {
+                    id: content.id, ...content.data()
+                }
+                setData(lista);
+            }
+        )
+        .catch((error) =>{
+            console.log(error);
+        });console.log(data);
     },[id]);
     return (
-        <ItemDetail item={item}/>
+        <ItemDetail item={data}/>
     );
 }
 

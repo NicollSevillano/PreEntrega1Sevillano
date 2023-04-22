@@ -1,39 +1,41 @@
-import { Button } from "bootstrap";
 import React from "react";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import "../css/ItemCount.css";
+import { Button } from "react-bootstrap";
+import { CartContext } from "../Context/CartContext";
 
-const ItemCount = (cantidadItems) =>{
+const ItemCount = ({items}) => {
     const [contador, setContador] = useState(0);
-    const [cantidad, setCantidad] = useState(cantidadItems);
-    
-    const agregar = () =>{
-        setContador(contador + 1);
-    };
+    const [stock, setStock] = useState(items.quantity);
+    const agregar = () => { setContador(contador + 1)
+        console.log(contador)};
     const quitar = () => {
-        setContador(contador - 1);
+        if (contador >= 1) { setContador(contador - 1) }
     }
+    const {addItem} = useContext(CartContext);
     const onAdd = () => {
-        setCantidad(cantidad - contador);
+        setStock(stock - contador);
+        setContador(0);
+        console.log(stock);
     }
-    return(
+    
+    return (
         <div className="container">
-            <div className="">
-                <div className="">
-                    <div className="btn-grupo">
-                        <button type="button" className="btn btn-outline-primary" onClick={agregar}>+</button>
-                        <span>{contador}</span>
-                        <button type="button" className="btn btn-outline-primary" onClick={quitar}>-</button>
-                    </div>
+            <div className="contenedorCantidad">
+                <div className="contador">
+                    <span>{contador}</span>
                 </div>
-            </div>
-            <div className="">
+                <div className="btn-grupo">
+                    <button className="boton" disabled={contador < 1} onClick={quitar}>-</button>
+                    <button className="boton" disabled={contador >= stock} onClick={agregar}>+</button>
+                </div>
                 <div className="">
-                    <button type="button" className="btn btn-outline-primary" onClick={onAdd}>Agregar al carrito</button>
+                    <Button onClick={() => {addItem(items,contador); onAdd()}}>Agregar al carrito</Button>
                 </div>
             </div>
         </div>
     )
-    
+
 }
 
 export default ItemCount;

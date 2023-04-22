@@ -1,13 +1,17 @@
 import React from "react";
-import "./StyleNavBar.css"; 
-import {AiOutlineShoppingCart} from "react-icons/ai"
+import "./StyleNavBar.css";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CartContext } from "./Context/CartContext";
+import { useContext } from "react";
 
 export const CartWidget = () => {
-    return(
-        <div> 
-            <AiOutlineShoppingCart/>
-            1
-        </div>
+    const { itemQuantity } = useContext(CartContext);
+
+    return (
+            <div>
+                <AiOutlineShoppingCart />
+                {itemQuantity() || ''}
+            </div>
     );
 }
 

@@ -1,0 +1,23 @@
+.ItemDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    display: flex;
+}
+.row-row2{
+    display: flex;
+}
+.p{
+    display: flex;
+    gap: 2px;
+}
+.imagen{
+    height: 20rem;
+}
+.boton{
+    padding: auto;
+    border: 2px solid black;
+}

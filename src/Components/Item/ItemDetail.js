@@ -1,20 +1,24 @@
-import React from "react";
-import ItemCount from "./ItemCount";
+import React, { useState } from "react";
+import ItemCount from "../Item/ItemCount";
+import "../css/ItemDetail.css";
 
 function ItemDetail ({item}){
     return(
-        <div>
-            <div>
-                <img src={item.imagen} className="img-fluid" alt={item.nombre}/>
-                <h1>{item.nombre}</h1>
-                <p>{item.tomo}</p>
-                <p>{item.precio}</p>
-                <p>{item.stock}</p>
+        <div className="ItemDetail">
+            <div className="row">
+                <h1>{item.Title}</h1>
             </div>
-            
-            <div>
-                    <ItemCount cantidadItems={10} />
+            <div className="row-row2">
+                <div className="column">
+                    <img src={item.Img} className="imagen img-fluid" alt={item.Title}/>
                 </div>
+                <div className="column">
+                    <p className="p">{item.Description}</p>
+                    <p className="p">{item.Price}</p>
+                    <p className="p">Cantidad: {item.Stock}</p>
+                    <ItemCount className="boton" items={item}/>
+                </div>
+            </div>
         </div>
     )
 }

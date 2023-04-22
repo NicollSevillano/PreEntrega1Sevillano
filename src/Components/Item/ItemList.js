@@ -1,15 +1,12 @@
 import React from "react";
-import Item from "./Item";
+import Item from "../Item/Item";
+import "../css/ItemList.css";
 
-const ItemList = ({item}) => {
+function ItemList({data}) {
     return(
-        <div className="iList">
+        <div className="ItemList">
             {
-                item.map(item => 
-                    <div key={item.id}>
-                        <Item item={item}/>
-                    </div>
-                )
+                data.map(x => <Item key={x.id} item={x}/>)
             }
         </div>
     )

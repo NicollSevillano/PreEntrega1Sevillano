@@ -1,0 +1,10 @@
+.btnGrupo{
+    padding: auto;
+    border: 2px transparent black;
+    gap: 1rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
