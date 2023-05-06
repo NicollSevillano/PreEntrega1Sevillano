@@ -1,4 +1,4 @@
-import CartContainer from "../Components/CartContainer";
+import CartContainer from "./CartContainer";
 
 function Cart() {
     return(

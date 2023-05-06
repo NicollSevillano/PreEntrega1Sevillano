@@ -1,0 +1,11 @@
+.ItemCart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contenedorItemCart{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}

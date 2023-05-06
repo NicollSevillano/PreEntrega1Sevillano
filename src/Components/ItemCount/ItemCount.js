@@ -1,23 +1,27 @@
 import React from "react";
-import { useState,useContext } from "react";
-import "../css/ItemCount.css";
+import { useState,useContext, useEffect } from "react";
+import "../ItemCount/ItemCount.css";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../Context/CartContext";
 
 const ItemCount = ({items}) => {
     const [contador, setContador] = useState(0);
-    const [stock, setStock] = useState(items.quantity);
-    const agregar = () => { setContador(contador + 1)
-        console.log(contador)};
-    const quitar = () => {
-        if (contador >= 1) { setContador(contador - 1) }
-    }
+    const [stock, setStock] = useState(items.Stock);
     const {addItem} = useContext(CartContext);
+
+    const agregar = () => { setContador(contador + 1)
+        console.log(contador)
+        console.log(stock);
+    };
+    const quitar = () => { setContador(contador - 1) }
     const onAdd = () => {
         setStock(stock - contador);
         setContador(0);
-        console.log(stock);
+        console.log(items);
     }
+    useEffect(() =>{
+        setStock(items.Stock);
+    }, [items.Stock])
     
     return (
         <div className="container">
@@ -30,7 +34,7 @@ const ItemCount = ({items}) => {
                     <button className="boton" disabled={contador >= stock} onClick={agregar}>+</button>
                 </div>
                 <div className="">
-                    <Button onClick={() => {addItem(items,contador); onAdd()}}>Agregar al carrito</Button>
+                    <Button className="botonCount" onClick={() => {onAdd(); addItem(items,contador) }}>Agregar al carrito</Button>
                 </div>
             </div>
         </div>

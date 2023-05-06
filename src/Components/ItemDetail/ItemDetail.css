@@ -1,0 +1,48 @@
+.ItemDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e7d8c9;
+    height: 700px;
+    font-family: 'Mirza', cursive;
+}
+.title{
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 30px;
+}
+.row {
+    display: flex;
+}
+
+.row-row2 {
+    display: flex;
+}
+
+.p {
+    display: flex;
+    gap: 1px;
+}
+
+.imagen {
+    height: 20rem;
+}
+.botonContador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.column {
+    justify-content: center;
+    padding-left: 20px;
+    margin: 20px;
+}
+
+.boton {
+    padding: 2px;
+    margin: 3px;
+    border-radius: 10px;
+    border-color: transparent;
+    justify-content: center;
+}

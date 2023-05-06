@@ -1,0 +1,40 @@
+
+.cartContenedora{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartContenedor{
+    display: flex;
+    flex-direction: column;
+}
+.contenedorCartContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+.palabraCartContainer{
+    display: flex;
+    padding-top: 10px;
+}
+.botonesCartContainer{
+    display: flex;
+    flex-direction: column;
+}
+.botonCartContainer{
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px;
+}
+.linkBoton{
+    color: black;
+    text-decoration: none;
+}
+.linkBoton:hover{
+    background-color: #9b2226;
+    border-radius: 5px;
+    color: #f1faee;
+    padding: 10px;
+}

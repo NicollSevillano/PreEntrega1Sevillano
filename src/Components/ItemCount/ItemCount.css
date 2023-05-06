@@ -1,0 +1,15 @@
+.btnGrupo{
+    padding: 2px;
+    margin: 3px;
+    border: 2px none black;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.botonCount{
+    border-color: transparent;
+}
